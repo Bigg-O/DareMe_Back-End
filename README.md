@@ -2,9 +2,9 @@
 
 A social media platorm where users dare each other to challenges for profit
 
-○ Developed a multi-layer relational data system on MERN Stack to handle state changes of the postings
-○ Utilized JSON Web Tokens to store encrypted user information from the client-side to the cloud
-○ Organized time dependent job controls to handle data flow of user experience in status changes
+- Developed a multi-layer relational data system on MERN Stack to handle state changes of the postings
+- Utilized JSON Web Tokens to store encrypted user information from the client-side to the cloud
+- Organized time dependent job controls to handle data flow of user experience in status changes
 
 ## Getting Started
 
