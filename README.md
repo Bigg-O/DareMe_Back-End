@@ -28,4 +28,4 @@ Cloud is running on [MongoDB Atlas](https://www.mongodb.com/)
 
 ## Authors
 
-- **Wookeun Song** - _Initial work_ - [PurpleBooth](https://github.com/Bigg-O)
+- **Wookeun Song** - _Initial work_ - [Bigg-O](https://github.com/Bigg-O)
