@@ -1,20 +1,18 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const dareRoutes = require("./api/routes/dares");
 const userRoutes = require('./api/routes/users');
 
-mongoose.connect(process.env.DAREME_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-mongoose.Promise = global.Promise;
-const db = mongoose.connection
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', function callback () {
-    console.log("h");
-});
+mongoose.connect(process.env.DAREME_URI, { useNewUrlParser: true })
+
+app.use(morgan("dev"));
+app.use('/uploads', express.static('uploads'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
