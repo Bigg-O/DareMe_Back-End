@@ -2,9 +2,9 @@
 
 A social media platorm where users dare each other to challenges for profit
 
-○ Developed a multi-layer relational data system on MERN Stack to handle state changes of the postings
-○ Utilized JSON Web Tokens to store encrypted user information from the client-side to the cloud
-○ Organized time dependent job controls to handle data flow of user experience in status changes
+- Developed a multi-layer relational data system on MERN Stack to handle state changes of the postings
+- Utilized JSON Web Tokens to store encrypted user information from the client-side to the cloud
+- Organized time dependent job controls to handle data flow of user experience in status changes
 
 ## Getting Started
 
@@ -28,4 +28,4 @@ Cloud is running on [MongoDB Atlas](https://www.mongodb.com/)
 
 ## Authors
 
-- **Wookeun Song** - _Initial work_ - [PurpleBooth](https://github.com/Bigg-O)
+- **Wookeun Song** - _Initial work_ - [Bigg-O](https://github.com/Bigg-O)
