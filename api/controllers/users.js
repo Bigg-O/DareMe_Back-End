@@ -98,7 +98,7 @@ exports.login = (req, res, next) => {
     });
 };
 
-exports.user_delete = (req, res, next) => {
+exports.delete = (req, res, next) => {
   User.remove({ _id: req.params.id })
     .then(result => {
       res.status(200).json({
