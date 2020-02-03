@@ -19,10 +19,10 @@ exports.signup = (req, res, next) => {
   User.find({ username: req.body.username })
     .then(user => {
       if (user.length > 0)
-        return res.status(409).json({
-          message: "User exists"
+        return res.status(409).send({
+          message: "Username exists"
         });
-      else
+      else {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
           if (err) {
             console.log(err)
@@ -35,7 +35,7 @@ exports.signup = (req, res, next) => {
               email: req.body.email,
               username: req.body.username,
               password_digest: hash,
-              wallet: 10,
+              wallet: 100,
               about: req.body.about
             });
             user.save()
@@ -51,6 +51,7 @@ exports.signup = (req, res, next) => {
               });
           }
         });
+      }
     });
 };
 
