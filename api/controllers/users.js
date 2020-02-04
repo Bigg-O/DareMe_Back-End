@@ -6,7 +6,11 @@ const User = require("../models/user");
 exports.get_all = (req, res, next) => {
   User.find()
     .then(users => {
-      return res.status(200).json(users)
+      return res.status(200).json({
+        "count": users.length,
+        "request": "GET",
+        "users": users
+      })
     })
     .catch(err => {
       res.status(500).json({
@@ -56,38 +60,41 @@ exports.signup = (req, res, next) => {
 };
 
 exports.login = (req, res, next) => {
-  User.find({ email: req.body.email })
-    .then(user => {
-      if (user.length < 1) {
+  User.find({ username: req.body.username })
+    .then(users => {
+      if (users.length < 1) {
         return res.status(401).json({
           message: "Auth failed"
         });
       }
-      bcrypt.compare(req.body.password, user[0].password, (err, result) => {
+      bcrypt.compare(req.body.password, users[0].password_digest, (err, result) => {
         if (err) {
           return res.status(401).json({
             message: "Auth failed"
-          });
-        }
-        if (result) {
+          })
+        } else if (result) {
           const token = jwt.sign(
             {
-              email: user[0].email,
-              userId: user[0]._id
+              userId: users[0]._id,
+              username: users[0].username
             },
             process.env.JWT_KEY,
-            {
-              expiresIn: "1h"
-            }
+            { expiresIn: "1h" }
           );
           return res.status(200).json({
             message: "Auth successful",
-            token: token
+            token: token,
+            user : {
+              username: users[0].username,
+              email: users[0].email,
+              wallet: users[0].wallet,
+              about: users[0].about
+            }
           });
-        }
-        res.status(401).json({
-          message: "Auth failed"
-        });
+        } else
+          res.status(401).json({
+            message: "Auth failed"
+          });
       });
     })
     .catch(err => {

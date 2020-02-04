@@ -3,7 +3,7 @@ const router = express.Router();
 const checkAuth = require('../middleware/check-auth');
 const Controller = require('../controllers/dares');
 
-router.get("/", Controller.get_all);
+router.get("/", checkAuth, Controller.get_all);
 
 router.get("/:id", Controller.get_one);
 
