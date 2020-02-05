@@ -4,28 +4,13 @@ const Dare = require("../models/dare");
 exports.get_all = (req, res, next) => {
   Dare.find()
     .then(dares => {
-      const response = {
+      res.status(200).json({
         count: dares.length,
+        request: "GET",
         dares: dares.map(dare => {
-          return {
-            name: dare.name,
-            price: dare.price,
-            DareImage: are.DareImage,
-            _id: are._id,
-            request: {
-              type: "GET",
-              url: "http://localhost:5000/Dares/" + are._id
-            }
-          };
+          return dare
         })
-      };
-      //   if (docs.length >= 0) {
-      res.status(200).json(response);
-      //   } else {
-      //       res.status(404).json({
-      //           message: 'No entries found'
-      //       });
-      //   }
+      })
     })
     .catch(err => {
       console.log(err);
