@@ -22,13 +22,13 @@ exports.get_all = (req, res, next) => {
 
 exports.create = (req, res, next) => {
   const dare = new Dare({
-    id: new mongoose.Types.ObjectId(),
-    username: req.body.username,
+    _id: new mongoose.Types.ObjectId(),
+    user_id: req.body.user_id,
     open_title: req.body.open_title,
     open_description: req.body.open_description,
-    open_pic_url: req.body.open_pic_url,
+    open_pic: req.body.open_pic_url,
     wanted_profit: req.body.wanted_profit,
-    amount: req.body.amount
+    open_posting_date: Date.now()
   });
   dare.save()
     .then(result => {

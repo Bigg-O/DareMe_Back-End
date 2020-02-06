@@ -19,7 +19,7 @@ const dareSchema = mongoose.Schema({
     // COMPLETED
     completed_date: { type: Date },
     completed_pic: { type: String },
-    completed_description: { type: String, required: true },
+    completed_description: { type: String },
     // completed_votes: []
 
     // Status Types
