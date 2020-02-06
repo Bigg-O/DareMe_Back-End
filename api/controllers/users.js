@@ -85,6 +85,7 @@ exports.login = (req, res, next) => {
             message: "Auth successful",
             token: token,
             user : {
+              _id: users[0]._id,
               username: users[0].username,
               email: users[0].email,
               wallet: users[0].wallet,
