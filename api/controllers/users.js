@@ -19,6 +19,21 @@ exports.get_all = (req, res, next) => {
     })
 }
 
+exports.get_one = (req, res, next) => {
+  User.find({ _id: req.params.id })
+    .select("wallet _id email username about")
+    .then(users => {
+      return res.status(200).json(
+        users[0]
+      )
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: err
+      })
+    })
+}
+
 exports.signup = (req, res, next) => {
   User.find({ username: req.body.username })
     .then(user => {
@@ -84,7 +99,7 @@ exports.login = (req, res, next) => {
           return res.status(200).json({
             message: "Auth successful",
             token: token,
-            user : {
+            user: {
               _id: users[0]._id,
               username: users[0].username,
               email: users[0].email,

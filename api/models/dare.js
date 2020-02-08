@@ -9,6 +9,7 @@ const dareSchema = mongoose.Schema({
     open_title: { type: String, required: true },
     open_description: { type: String, required: true },
     open_pic: { type: String },
+    total_amount: { type: Number, default: 0 },
     wanted_profit: { type: Number, require: true },
     bidders: [],
     open_posting_date: { type: Date, required: true },

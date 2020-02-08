@@ -81,11 +81,16 @@ exports.get_one = (req, res, next) => {
 };
 
 exports.update = (req, res, next) => {
+  console.log(req.params.id)
+  console.log(req.body)
   const id = req.params.id;
-  const updateOps = {};
-  for (const ops of req.body) {
-    updateOps[ops.propName] = ops.value;
-  }
+  const updateOps = {
+    total_amount : req.body.total_amount,
+    bidders: req.body.bidders
+  };
+  // for (const ops of req.body) {
+  //   updateOps[ops.propName] = ops.value;
+  // }
   Dare.update({ _id: id }, { $set: updateOps })
     .then(result => {
       res.status(200).json({
