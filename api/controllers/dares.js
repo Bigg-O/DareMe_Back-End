@@ -96,7 +96,7 @@ exports.update = (req, res, next) => {
       res.status(200).json({
         message: "Dare updated",
         request: {
-          type: "GET",
+          type: "PATCH",
           url: "http://localhost:3000/Dares/" + id
         }
       });

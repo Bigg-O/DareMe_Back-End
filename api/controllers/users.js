@@ -121,6 +121,29 @@ exports.login = (req, res, next) => {
     });
 };
 
+exports.update = (req, res, next) => {
+  console.log(req.params.id)
+  console.log(req.body)
+  const id = req.params.id;
+  const updateOps = { wallet: req.body.wallet }
+  User.update({ _id: id }, { $set: updateOps })
+    .then(result => {
+      res.status(200).json({
+        message: "User updated",
+        request: {
+          type: "PATCH",
+          url: "http://localhost:3000/Dares/" + id
+        }
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+}
+
 exports.delete = (req, res, next) => {
   User.remove({ _id: req.params.id })
     .then(result => {
