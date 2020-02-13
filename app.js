@@ -31,6 +31,9 @@ app.use((req, res, next) => {
 app.use("/dares", dareRoutes);
 app.use("/users", userRoutes);
 
+//testing for Heroku deployment
+app.use('/', express.static('client'))
+
 app.use((req, res, next) => {
     const error = new Error("Not found");
     error.status = 404;
