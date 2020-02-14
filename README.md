@@ -8,7 +8,7 @@ A social media platorm where users dare each other to challenges for profit
 
 ## Getting Started
 
-You can directly access the app from "https://dashboard.heroku.com/apps"
+You can directly access the app from "https://dareme.netlify.com"
 
 backend API from "URL"
 
@@ -16,7 +16,8 @@ Frontend repository is available here: https://github.com/Bigg-O/DareMe_frontend
 
 ## Deployment
 
-The app is deployed on [Heroku](https://www.heroku.com/)
+The app is deployed on [Netlify](https://www.netlify.com/)
+Backend is running on [Heroku](https://www.heroku.com/)
 Cloud is running on [MongoDB Atlas](https://www.mongodb.com/)
 
 ## Built With
