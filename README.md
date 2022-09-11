@@ -20,7 +20,7 @@ The app is deployed on [Netlify](https://www.netlify.com/)
 Backend is running on [Heroku](https://www.heroku.com/)
 Cloud is running on [MongoDB Atlas](https://www.mongodb.com/)
 
-## Built With
+## Built With 
 
 - [MongoDB Atlas](https://www.mongodb.com/) - The database cloud used
 - [Express.js](https://expressjs.com/) - The web framework used
