@@ -10,7 +10,7 @@ exports.get_all = (req, res, next) => {
         "count": users.length,
         "request": "GET",
         "users": users
-      })
+      }) 
     })
     .catch(err => {
       res.status(500).json({
